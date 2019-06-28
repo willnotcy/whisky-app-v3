@@ -98,7 +98,6 @@ class DatabaseClient {
   Future<List<Whisky>> getWhiskies() async {
     Database db = await database;
 
-    //List<Map> results = await db.query(tableWhisky, columns: Whisky.columns);
     List<Map> results = await db.rawQuery("""
         SELECT W.id, W.name, W.distillery_id, W.age, W.notes, W.rating, W.nose, W.taste, W.image_url, D.name as d_name, D.region, D.country, D.image_url as d_image_url FROM
         $tableWhisky W INNER JOIN $tableDistillery D
@@ -114,20 +113,18 @@ class DatabaseClient {
     return whiskies;
   }
 
-  Future<List<Whisky>> getWhiskiesDescending() async {
+  Future<List<Distillery>> getDistilleries() async {
     Database db = await database;
 
-    List<Map> results = await db.query(tableWhisky,
-        columns: Whisky.columns, orderBy: "id DESC");
+    List<Map> results = await db.query(tableDistillery, columns: Distillery.columns);
 
-    List<Whisky> whiskies = new List();
-    results.forEach((result) async {
-      Whisky whisky = Whisky.fromMap(result);
-      whisky.distillery = await getDistillery(whisky.distillery_id);
-      whiskies.add(whisky);
+    List<Distillery> distilleries = new List();
+    results.forEach((result) {
+      Distillery distillery = Distillery.fromMap(result);
+      distilleries.add(distillery);
     });
 
-    return whiskies;
+    return distilleries;
   }
 
   seedDB(Database db) async {
