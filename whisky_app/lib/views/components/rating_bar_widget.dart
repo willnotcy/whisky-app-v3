@@ -45,7 +45,7 @@ class RatingBar extends StatelessWidget {
       onHorizontalDragUpdate: (dragDetails) {
         RenderBox box = context.findRenderObject();
         var _pos = box.globalToLocal(dragDetails.globalPosition);
-        var i = (_pos.dx - size) / size;
+        var i = (_pos.dx - (size * 2)) / size;
         var newRating = i;
         if(newRating > 6) {
           newRating = 6.0;

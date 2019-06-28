@@ -11,8 +11,8 @@ class Whisky {
   int age;
   String notes;
   double rating = 0.0;
-  double nose;
-  double taste;
+  double nose = 0.0;
+  double taste = 0.0;
   String image_url = '';
 
   static final columns = ["id", "name", "distillery_id", "age", "notes", "rating", " nose", "taste", "image_url"];
