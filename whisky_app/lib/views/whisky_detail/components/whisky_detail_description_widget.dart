@@ -32,7 +32,7 @@ class WhiskyDetailDescription extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               RatingBar(
-                whisky.nose,
+                rating: whisky.nose,
                 text: 'Nose',
               ),
             ],
@@ -42,7 +42,7 @@ class WhiskyDetailDescription extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             RatingBar(
-              whisky.taste,
+              rating: whisky.taste,
               text: 'Taste',
             ),
           ],

@@ -28,7 +28,7 @@ class WhiskyDescription extends StatelessWidget {
                 style: Theme.of(context).textTheme.subhead,
               ),
               Text(whisky.age != 0 ? 'Age: ${whisky.age}' : ''),
-              RatingBar(whisky.rating)
+              RatingBar(rating: whisky.rating)
             ],
           ),
         ),

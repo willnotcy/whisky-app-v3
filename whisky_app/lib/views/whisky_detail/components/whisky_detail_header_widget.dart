@@ -70,7 +70,7 @@ class WhiskyDetailHeader extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.only(top: 8.0, bottom: 16.0),
                         child: RatingBar(
-                          whisky.rating,
+                          rating: whisky.rating,
                           text: 'Overall rating',
                         ),
                       ),

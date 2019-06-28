@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:whisky_app/models/distillery.dart';
+import 'package:whisky_app/models/whisky.dart';
 import 'package:whisky_app/services/database_client.dart';
 import 'package:autocomplete_textfield/autocomplete_textfield.dart';
+import 'package:whisky_app/views/components/rating_bar_widget.dart';
+import 'package:whisky_app/services/math.dart';
 
 class NewWhiskyPage extends StatefulWidget {
   @override
@@ -17,6 +20,8 @@ class _NewWhiskyPageState extends State<NewWhiskyPage> {
 
   final DatabaseClient _client = DatabaseClient.instance;
   List<Distillery> _distilleries = new List();
+
+  Whisky whisky = new Whisky();
 
   @override
   void initState() {
@@ -111,6 +116,16 @@ class _NewWhiskyPageState extends State<NewWhiskyPage> {
                   },
                 )
               ),
+            ),
+            RatingBar(
+              rating: whisky.rating,
+              text: 'Nose',
+              size: 40,
+              onRatingChanged: (v) {
+                setState(() {
+                  whisky.rating = Math.roundHalf(v); 
+                });
+              },
             ),
             Padding(
               padding: const EdgeInsets.all(16.0),

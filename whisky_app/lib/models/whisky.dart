@@ -10,7 +10,7 @@ class Whisky {
   Distillery distillery;
   int age;
   String notes;
-  double rating;
+  double rating = 0.0;
   double nose;
   double taste;
   String image_url = '';
