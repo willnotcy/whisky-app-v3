@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:whisky_app/models/whisky.dart';
 import 'package:whisky_app/views/home/components/bottom_nav_bar_widget.dart';
+import 'package:whisky_app/views/new_whisky/new_entry_widget.dart';
 import 'package:whisky_app/views/new_whisky/new_whisky_widget.dart';
 import 'package:whisky_app/views/placeholder_widget.dart';
 import 'package:whisky_app/views/whiskies/whiskies_widget.dart';
@@ -28,7 +29,7 @@ class _HomeState extends State<Home> {
     Whisky whisky = await Navigator.of(context).push(
       MaterialPageRoute(
         builder: (BuildContext context) {
-          return NewWhiskyPage();
+          return NewWhiskyEntryPage();
         },
       ),
     );

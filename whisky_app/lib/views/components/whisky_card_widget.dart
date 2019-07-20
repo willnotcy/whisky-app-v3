@@ -1,23 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:whisky_app/models/whisky.dart';
 import 'package:whisky_app/views/placeholder_widget.dart';
-import 'package:whisky_app/views/whiskies/components/whisky_description_widget.dart';
-import 'package:whisky_app/views/whiskies/components/whisky_image_widget.dart';
+import 'package:whisky_app/views/components/whisky_description_widget.dart';
+import 'package:whisky_app/views/components/whisky_image_widget.dart';
 import 'package:whisky_app/views/whisky_detail/whisky_detail_widget.dart';
 
 class WhiskyCard extends StatefulWidget {
-  WhiskyCard(this.whisky);
+  WhiskyCard(this.whisky, {this.basic = false});
 
   final Whisky whisky;
+  final bool basic;
 
   @override
-  _WhiskyCardState createState() => _WhiskyCardState(whisky);
+  _WhiskyCardState createState() => _WhiskyCardState(whisky, basic: basic);
 }
 
 class _WhiskyCardState extends State<WhiskyCard> {
-  _WhiskyCardState(this.whisky);
+  _WhiskyCardState(this.whisky, {this.basic});
 
   Whisky whisky;
+  bool basic;
 
   showWhiskyDetailPage() {
     Navigator.of(context).push(
@@ -41,7 +43,7 @@ class _WhiskyCardState extends State<WhiskyCard> {
             children: <Widget>[
               Positioned(
                 left: 50.0,
-                child: WhiskyDescription(whisky),
+                child: WhiskyDescription(whisky, basic: basic,),
               ),
               Positioned(
                 top: 15.5,

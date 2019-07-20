@@ -1,9 +1,9 @@
-import 'dart:math';
+import 'package:whisky_app/services/math.dart';
 
 import 'package:flutter/material.dart';
 import 'package:whisky_app/models/whisky.dart';
 import 'package:whisky_app/services/database_client.dart';
-import 'package:whisky_app/views/whiskies/components/whisky_card_widget.dart';
+import 'package:whisky_app/views/components/whisky_card_widget.dart';
 
 class Whiskies extends StatefulWidget {
   @override
@@ -32,14 +32,7 @@ class _WhiskiesState extends State<Whiskies> {
     });
   }
 
-  String randomString(int length) {
-    var rand = new Random();
-    var codeUnits = new List.generate(length, (index) {
-      return rand.nextInt(33) + 89;
-    });
 
-    return new String.fromCharCodes(codeUnits);
-  }
 
   void filterSearchResults(String filter) {
     List<Whisky> temp = List();
@@ -89,11 +82,11 @@ class _WhiskiesState extends State<Whiskies> {
             ),
             Expanded(
               child: ListView.builder(
-                key: new Key(randomString(10)),
+                key: new Key(Math.randomString(10)),
                 shrinkWrap: true,
                 itemCount: _filteredWhiskies.length,
                 itemBuilder: (context, index) {
-                  return WhiskyCard(_filteredWhiskies[index]);
+                  return WhiskyCard(_filteredWhiskies[index], basic: false,);
                 },
               ),
             )

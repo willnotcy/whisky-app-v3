@@ -27,7 +27,7 @@ class Distillery {
 
   static fromMap(Map map) {
     Distillery distillery = new Distillery();
-    distillery.id = map["id"];
+    //distillery.id = map["id"];
     distillery.name = map["name"];
     distillery.region = map["region"];
     distillery.country = map["country"];
